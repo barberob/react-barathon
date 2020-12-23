@@ -22,7 +22,7 @@ const SSection = styled.div`
     flex-direction: column;
     padding: 15px;
     background-color: ${colors.grey};
-    margin: 0 auto;
+    margin: 0 auto 100px auto;
 `;
 
 export default Section;

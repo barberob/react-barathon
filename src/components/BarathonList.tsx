@@ -13,7 +13,6 @@ const BarathonList = (): JSX.Element => {
             const response = await fetch('http://localhost:3000/barathons')
             const barathons = await response.json()
             setBarathons(barathons)
-            console.log(barathons)
         }
 
         fetchBarathons()
@@ -24,15 +23,14 @@ const BarathonList = (): JSX.Element => {
         <>
             <h2>Liste des barathons</h2>
             <SBarathonList>
-                {barathons.map((barathon:IBarathon) => {
+                {barathons.map((barathon:IBarathon, i) => {
                     return(
-                        <Barathon 
+                        <Barathon key={i}
                             name={barathon.name}
                             author={barathon.author}
                         />
                     )
                 })}
-
             </SBarathonList>
         </>
     )
