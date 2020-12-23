@@ -16,10 +16,13 @@ const Section = ({ children }: IProps): JSX.Element => {
 
 const SSection = styled.div`
     border-radius: 4px;
-    max-width: 320px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     padding: 15px;
     background-color: ${colors.grey};
-    margin: 30px auto;
+    margin: 0 auto;
 `;
 
 export default Section;

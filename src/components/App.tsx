@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import { colors } from '../styles/colors';
 import { IPub } from '../types/api';
 import BarathonForm from './BarathonForm';
+import BarathonList from './BarathonList';
 import PubThumbnail from './PubThumbnail';
 import Section from './Section';
 
 const SContainer = styled.div`
     background-color: ${colors.darkGrey};
-    height: 100%;
     width: 100%;
-    padding: 15px;
+    padding: 15px 0;
 `;
 
 const App = (): JSX.Element => {
@@ -34,7 +34,9 @@ const App = (): JSX.Element => {
 
     return (
         <SContainer>
-
+            <Section>
+                <BarathonList/>
+            </Section>
             <Section>
                 <BarathonForm pubs={pubs}/>
             </Section>

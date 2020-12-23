@@ -10,3 +10,19 @@ export interface IPub {
         lng: number;
     }
 }
+
+export interface IBarathon {
+    _id: string
+    name : string
+    author : string
+    checkpoints : string[]
+    comments? : IComment[]
+}
+
+
+export interface IComment {
+    text : string
+    author : string
+    date : string
+    rating : number
+}
