@@ -13,14 +13,17 @@ const BarathonList = (): JSX.Element => {
     return (
         <>
             <SBarathonList>
-                {barathons.map((barathon:IBarathon, i) => {                    
-                    return(
-                        <Barathon key={i}
-                            name={barathon.name}
-                            author={barathon.author}
-                            checkpoints={barathon.checkpoints}
-                        />
-                    )
+                {barathons.map((barathon:IBarathon, i) => {      
+                    if(barathon.checkpoints.length > 1) {
+
+                        return(
+                            <Barathon key={i}
+                                name={barathon.name}
+                                author={barathon.author}
+                                checkpoints={barathon.checkpoints}
+                            />
+                        )
+                    }              
                 })}
             </SBarathonList>
         </>

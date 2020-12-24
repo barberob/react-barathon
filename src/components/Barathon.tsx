@@ -11,6 +11,9 @@ const Barathon = ({name, author, checkpoints}): JSX.Element => {
     const {setSelectedBarathon} = useBarathons()
     
     const handleClick = () => {
+        window.scrollTo(0,0)
+        console.log("checkpoints", checkpoints);
+        
         setSelectedBarathon(checkpoints)
     }
 
