@@ -20,6 +20,9 @@ const ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">Op
 const BarathonMap = ({pubs}): JSX.Element => {
 
     const {selectedBarathon} = useBarathons()
+
+    console.log('selected' , selectedBarathon);
+    
     
     const createJourney = (): IPub[] => {
         return pubs.filter((pub : IPub) => selectedBarathon.indexOf(pub._id) >= 0, 0)
@@ -51,6 +54,9 @@ const BarathonMap = ({pubs}): JSX.Element => {
                 {journey && journey.map((pub: IPub) => {
                     return(
                         <Marker position={[pub.latlng.lat, pub.latlng.lng]} key={pub._id}>
+                            <Popup>
+                                <PubThumbnail pub={pub} simpleDisplay={true}></PubThumbnail>
+                            </Popup>
                         </Marker>
                     )
                 })}

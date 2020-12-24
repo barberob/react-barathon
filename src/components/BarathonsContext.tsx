@@ -18,7 +18,7 @@ export const BarathonsContextProvider = ({ children }: IProps): JSX.Element => {
 
     const [barathons, setBarathons] = useState<IBarathon[]>([])
 
-    const [selectedBarathon, setSelectedBarathon] = useState({})
+    const [selectedBarathon, setSelectedBarathon] = useState<string[]>([])
 
     useEffect(() => {
         const fetchBarathons = async (): Promise<void> => {

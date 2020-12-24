@@ -8,11 +8,12 @@ import Button from '../components/Button'
 
 interface IProps {
     pub: IPub
-    addPub: (_id:string) => void
-    removePub: (_id:string) => void
+    addPub?: (_id:string) => void
+    removePub?: (_id:string) => void
+    simpleDisplay? : boolean
 }
 
-const PubThumbnail = ({ pub, addPub, removePub}: IProps): JSX.Element => {
+const PubThumbnail = ({ pub, addPub, removePub, simpleDisplay}: IProps): JSX.Element => {
     const { name, img, description, _id } = pub;
     return (
         <SThumbnail>
@@ -21,20 +22,24 @@ const PubThumbnail = ({ pub, addPub, removePub}: IProps): JSX.Element => {
                 <STitle>{name}</STitle>
                 <SDescription>{description}</SDescription>
             </SContent>
-            <Button type='button'
-            onClick={
-                ():void => {
-                    console.log('addpub');
-                    
-                    addPub(_id)
-                }}>Add</Button>
-
-            <Button type='button'
-            onClick={
-                ():void => {
-
-                    removePub(_id)
-            }}>Remove</Button>
+            {!simpleDisplay &&
+                <>
+                    <Button type='button'
+                    onClick={
+                        ():void => {
+                            console.log('addpub');
+                            
+                            addPub(_id)
+                        }}>Add</Button>
+        
+                    <Button type='button'
+                    onClick={
+                        ():void => {
+                            
+                            removePub(_id)
+                        }}>Remove</Button>
+                </>
+            }
 
         </SThumbnail>
     );
