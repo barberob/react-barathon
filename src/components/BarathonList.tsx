@@ -1,33 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { IBarathon } from '../types/api'
 import Barathon from './Barathon'
 
+import useBarathons from './BarathonsContext'
+
 
 const BarathonList = (): JSX.Element => {
 
-    const [barathons, setBarathons] = useState<IBarathon[]>([])
-
-    useEffect(() => {
-        const fetchBarathons = async (): Promise<void> => {
-            const response = await fetch('http://localhost:3000/barathons')
-            const barathons = await response.json()
-            setBarathons(barathons)
-        }
-
-        fetchBarathons()
-    }, [])
-
+    const {barathons} = useBarathons()
 
     return (
         <>
-            <h2>Liste des barathons</h2>
             <SBarathonList>
-                {barathons.map((barathon:IBarathon, i) => {
+                {barathons.map((barathon:IBarathon, i) => {                    
                     return(
                         <Barathon key={i}
                             name={barathon.name}
                             author={barathon.author}
+                            checkpoints={barathon.checkpoints}
                         />
                     )
                 })}

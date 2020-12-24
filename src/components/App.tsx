@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colors } from '../styles/colors';
 import { IPub } from '../types/api';
 import BarathonForm from './BarathonForm';
-import BarathonList from './BarathonList';
+import Barathons from './Barathons';
 import PubThumbnail from './PubThumbnail';
 import Section from './Section';
 
@@ -35,7 +35,7 @@ const App = (): JSX.Element => {
     return (
         <SContainer>
             <Section>
-                <BarathonList/>
+                <Barathons pubs={pubs}/>
             </Section>
             <Section>
                 <BarathonForm pubs={pubs}/>
