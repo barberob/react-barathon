@@ -7,9 +7,9 @@ interface IProps {
 }
 
 interface IBarathonsContext {
-    barathons? : IBarathon[]
-    selectedBarathon? : any
-    setSelectedBarathon? : any
+    barathons : IBarathon[]
+    selectedBarathon : string[]
+    setSelectedBarathon : (string) => void
 }
 
 const BarathonsContext = createContext({} as IBarathonsContext);
@@ -17,7 +17,6 @@ const BarathonsContext = createContext({} as IBarathonsContext);
 export const BarathonsContextProvider = ({ children }: IProps): JSX.Element => {
 
     const [barathons, setBarathons] = useState<IBarathon[]>([])
-
     const [selectedBarathon, setSelectedBarathon] = useState<string[]>([])
 
     useEffect(() => {
